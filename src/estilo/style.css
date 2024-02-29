@@ -1,0 +1,141 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.background{
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+}
+
+.background::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background: linear-gradient( 107deg, black, rgba(0, 0, 0, 0.425), black);
+}
+
+video{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.container__card{
+    height: 100vh;
+    display: flex;
+    align-items: center; justify-content: center;
+}
+
+.cardALL{
+    height: 30rem;
+    width: 24rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 160deg;
+}
+
+.card__3D{
+    background: 
+        url(../img/ninja__capa.jpg)
+        no-repeat
+        center/cover;
+    height: 28rem;
+    width: 22rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgb(0 0 0 / 1);
+    border: 1px solid rgba(238, 238, 238, 0.1);
+    position: relative;
+    transition: .6s;
+}
+
+.cardALL:hover .card__3D{
+    transform: 
+    rotateY(200deg) 
+    rotateX(20deg)
+    scale(.9);
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.39), black),
+        url(../img/ninja__capa.jpg)
+        no-repeat
+        center/cover;
+}
+
+.card__hide{
+    transition: .2s;
+    position: absolute;
+    top: 100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient( to top, transparent, rgba(0, 0, 0, .5) 80%);
+    border-radius: 1rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center; justify-content: center;
+    padding: 3rem;
+    gap: 5rem;
+}
+
+.cardALL:hover .card__hide{
+    top: 0;
+}
+
+.resumo{
+    color: white;
+}
+
+.capa__longa{
+    width: 10rem;
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    box-shadow: 0 0 1rem red;
+}
+
+.hide__bottom{
+    display: flex;
+    align-items: center; justify-content: center;
+    gap: 5rem;
+}
+
+.hide__bottom a{
+    display: flex;
+    align-items: center; justify-content: center;
+    background: red;
+    height: 4rem; width: 4rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: .2s;
+}
+
+.hide__bottom a:hover {
+    background: transparent;
+    border-color: red;
+}
+
+.hide__bottom a:hover i{
+    animation: rodar .5s ease-in-out;
+}
+
+@keyframes rodar {
+    0%{
+        transform: rotate(0);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
